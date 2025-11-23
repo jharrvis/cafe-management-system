@@ -5,12 +5,23 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased] - 2025-11-23
 
 ### Added
+- **Username-based Authentication**: Implementation of username for user login instead of NISN
+  - New migration to rename nisn column to username in users table
+  - Username field now required during registration
+
+### Changed
+- **Authentication System**: Replaced NISN with username for user identification
+  - Login form now accepts username or email for authentication
+  - Register form now requires username input
+  - LoginRequest updated to authenticate with username or email
+  - User model updated to use username instead of nisn
+  - User seeder updated to use usernames for default accounts
 - **Settings-based Application Name**: Implement dynamic application name from database settings
   - Update AppServiceProvider to provide cafeName and appName variables to all views
   - Use View Composer to make settings available globally
   - Error handling for cases when settings table doesn't exist yet
 
-### Changed
+### Changed (Previous Changes)
 - **Route**: Changed root route (/) from welcome page to redirect to login page
 - **Application Name**: All instances of "Kantin Sekolah" replaced with dynamic $appName/$cafeName variable
   - Login page (`resources/views/auth/login.blade.php`)
@@ -23,10 +34,15 @@ All notable changes to this project will be documented in this file.
 - **Environment**: Updated APP_NAME from 'Laravel' to 'Aplikasi Cafe' and APP_URL from 'http://kantin.test' to 'http://cafe.test'
 
 ### Modified Files
+- `app/Models/User.php` - Changed fillable from nisn to username
+- `app/Http/Requests/Auth/LoginRequest.php` - Updated authentication to use username
+- `app/Http/Controllers/Auth/RegisteredUserController.php` - Updated registration to use username
+- `resources/views/auth/login.blade.php` - Updated form labels and placeholders for username
+- `resources/views/auth/register.blade.php` - Replaced NISN field with username field
+- `database/seeders/UserSeeder.php` - Updated default users to use username
+- `database/migrations/2025_11_23_094036_rename_nisn_to_username_in_users_table.php` - Migration for changing column
 - `app/Providers/AppServiceProvider.php` - Added View Composer for global settings
 - `routes/web.php` - Changed root route to redirect to login
-- `resources/views/auth/login.blade.php` - Updated to use dynamic cafe name
-- `resources/views/auth/register.blade.php` - Updated to use dynamic cafe name
 - `resources/views/layouts/guest.blade.php` - Updated title to use dynamic app name
 - `resources/views/layouts/app.blade.php` - Updated title to use dynamic app name
 - `resources/views/layouts/navigation.blade.php` - Updated header to use dynamic cafe name
@@ -34,6 +50,9 @@ All notable changes to this project will be documented in this file.
 - `.env` - Updated database name, app name, and app url
 
 ### Technical Details
+- **Authentication**: Users can now login using either username or email
+- **Database**: Username column is unique and required for all users
+- **User Experience**: Register form now clearly requires username for account creation
 - **Dynamic Naming**: Application name now comes from database settings, can be changed via admin panel
 - **Global Variables**: cafeName and appName variables now available in all views
 - **Safe Implementation**: Error handling in AppServiceProvider to prevent crashes when settings table is not yet available
@@ -42,7 +61,7 @@ All notable changes to this project will be documented in this file.
 ### Migration Notes
 To apply these changes:
 1. Update your MySQL server to include a database named `aplikasi-cafe`
-2. Run migrations if needed: `php artisan migrate`
+2. Run migrations: `php artisan migrate` (includes the username migration)
 3. Clear configuration cache: `php artisan config:cache`
 4. Clear view cache: `php artisan view:clear`
 
