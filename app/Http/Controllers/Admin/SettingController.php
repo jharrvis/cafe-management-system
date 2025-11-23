@@ -77,7 +77,7 @@ class SettingController extends Controller
     public function deleteCustomer(User $user)
     {
         if ($user->role !== 'student') {
-            return redirect()->back()->with('error', 'Hanya dapat menghapus akun siswa');
+            return redirect()->back()->with('error', 'Hanya dapat menghapus akun pelanggan');
         }
 
         // Delete user's orders first
@@ -94,7 +94,7 @@ class SettingController extends Controller
     public function toggleCustomer(User $user)
     {
         if ($user->role !== 'student') {
-            return redirect()->back()->with('error', 'Hanya dapat mengubah status akun siswa');
+            return redirect()->back()->with('error', 'Hanya dapat mengubah status akun pelanggan');
         }
 
         // Toggle active status (assuming we'll add this field)

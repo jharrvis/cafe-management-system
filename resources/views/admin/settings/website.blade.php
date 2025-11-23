@@ -110,7 +110,7 @@
                 <div class="space-y-4">
                     <!-- Max Order Per Day -->
                     <div>
-                        <label for="max_order_per_day" class="block text-sm font-medium text-gray-700 mb-2">Maksimal Pesanan Per Hari (per siswa)</label>
+                        <label for="max_order_per_day" class="block text-sm font-medium text-gray-700 mb-2">Maksimal Pesanan Per Hari (per pelanggan)</label>
                         <input type="number" name="max_order_per_day" id="max_order_per_day" min="1"
                             value="{{ old('max_order_per_day', $settings['max_order_per_day'] ?? 10) }}"
                             class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -123,7 +123,7 @@
                     <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                         <div>
                             <label for="order_enabled" class="font-medium text-gray-800">Aktifkan Pemesanan</label>
-                            <p class="text-xs text-gray-500 mt-1">Izinkan siswa melakukan pemesanan</p>
+                            <p class="text-xs text-gray-500 mt-1">Izinkan pelanggan melakukan pemesanan</p>
                         </div>
                         <label class="relative inline-flex items-center cursor-pointer">
                             <input type="checkbox" name="order_enabled" id="order_enabled" value="1"

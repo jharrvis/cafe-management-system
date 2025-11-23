@@ -87,11 +87,11 @@
                 <div class="flex items-center justify-between mb-2">
                     <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                         <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0v-3m0 3h-3m3 0l-4.5-4.5M18 18.5l-4.5-4.5m4.5 4.5l-4.5 4.5"/>
                         </svg>
                     </div>
                 </div>
-                <p class="text-gray-500 text-xs">Siap Diambil</p>
+                <p class="text-gray-500 text-xs">Siap Diantar</p>
                 <h3 class="text-xl font-bold text-green-600 mt-1">{{ $readyOrders }}</h3>
             </div>
 
@@ -110,7 +110,7 @@
                 <h3 class="text-xl font-bold text-gray-800 mt-1">{{ $totalProducts }}</h3>
             </div>
 
-            <!-- Total Users -->
+            <!-- Total Customers -->
             <div class="bg-white rounded-2xl p-4 shadow-md">
                 <div class="flex items-center justify-between mb-2">
                     <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
@@ -119,7 +119,7 @@
                         </svg>
                     </div>
                 </div>
-                <p class="text-gray-500 text-xs">Total Siswa</p>
+                <p class="text-gray-500 text-xs">Total Pelanggan</p>
                 <h3 class="text-xl font-bold text-gray-800 mt-1">{{ $totalUsers }}</h3>
             </div>
         </div>
