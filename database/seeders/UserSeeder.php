@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Administrator',
             'email' => 'admin@kantin.sch.id',
-            'nisn' => null,
+            'username' => 'admin',
             'password' => Hash::make('password'),
             'role' => 'admin',
             'is_active' => true,
@@ -26,27 +26,27 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Budi Santoso',
                 'email' => 'budi@kantin.sch.id',
-                'nisn' => '1234567890',
+                'username' => 'budi',
             ],
             [
                 'name' => 'Ani Lestari',
                 'email' => 'ani@kantin.sch.id',
-                'nisn' => '0987654321',
+                'username' => 'ani',
             ],
             [
                 'name' => 'Siti Nurhaliza',
                 'email' => 'siti@kantin.sch.id',
-                'nisn' => '1122334455',
+                'username' => 'siti',
             ],
             [
                 'name' => 'Ahmad Fauzi',
                 'email' => 'ahmad@kantin.sch.id',
-                'nisn' => '5544332211',
+                'username' => 'ahmad',
             ],
             [
                 'name' => 'Dewi Kartika',
                 'email' => 'dewi@kantin.sch.id',
-                'nisn' => '6677889900',
+                'username' => 'dewi',
             ],
         ];
 
@@ -54,7 +54,7 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => $student['name'],
                 'email' => $student['email'],
-                'nisn' => $student['nisn'],
+                'username' => $student['username'],
                 'password' => Hash::make('password'),
                 'role' => 'student',
                 'is_active' => true,

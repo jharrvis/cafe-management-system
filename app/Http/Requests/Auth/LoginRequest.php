@@ -45,8 +45,8 @@ class LoginRequest extends FormRequest
         $password = $this->get('password');
         $remember = $this->boolean('remember');
 
-        // Determine if login is email or NISN
-        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'nisn';
+        // Determine if login is email or username
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         if (! Auth::attempt([$field => $login, 'password' => $password, 'is_active' => true], $remember)) {
             RateLimiter::hit($this->throttleKey());

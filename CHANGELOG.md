@@ -2,7 +2,51 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased] - 2025-10-31
+## [Unreleased] - 2025-11-23
+
+### Added
+- **Settings-based Application Name**: Implement dynamic application name from database settings
+  - Update AppServiceProvider to provide cafeName and appName variables to all views
+  - Use View Composer to make settings available globally
+  - Error handling for cases when settings table doesn't exist yet
+
+### Changed
+- **Route**: Changed root route (/) from welcome page to redirect to login page
+- **Application Name**: All instances of "Kantin Sekolah" replaced with dynamic $appName/$cafeName variable
+  - Login page (`resources/views/auth/login.blade.php`)
+  - Register page (`resources/views/auth/register.blade.php`)
+  - Guest layout title (`resources/views/layouts/guest.blade.php`)
+  - App layout title (`resources/views/layouts/app.blade.php`)
+  - Navigation header (`resources/views/layouts/navigation.blade.php`)
+  - Welcome page (`resources/views/welcome.blade.php`)
+- **Database Configuration**: Changed database name in .env from `aplikasi-kantin` to `aplikasi-cafe`
+- **Environment**: Updated APP_NAME from 'Laravel' to 'Aplikasi Cafe' and APP_URL from 'http://kantin.test' to 'http://cafe.test'
+
+### Modified Files
+- `app/Providers/AppServiceProvider.php` - Added View Composer for global settings
+- `routes/web.php` - Changed root route to redirect to login
+- `resources/views/auth/login.blade.php` - Updated to use dynamic cafe name
+- `resources/views/auth/register.blade.php` - Updated to use dynamic cafe name
+- `resources/views/layouts/guest.blade.php` - Updated title to use dynamic app name
+- `resources/views/layouts/app.blade.php` - Updated title to use dynamic app name
+- `resources/views/layouts/navigation.blade.php` - Updated header to use dynamic cafe name
+- `resources/views/welcome.blade.php` - Updated to use dynamic cafe name
+- `.env` - Updated database name, app name, and app url
+
+### Technical Details
+- **Dynamic Naming**: Application name now comes from database settings, can be changed via admin panel
+- **Global Variables**: cafeName and appName variables now available in all views
+- **Safe Implementation**: Error handling in AppServiceProvider to prevent crashes when settings table is not yet available
+- **Database**: Uses MySQL with database name `aplikasi-cafe`
+
+### Migration Notes
+To apply these changes:
+1. Update your MySQL server to include a database named `aplikasi-cafe`
+2. Run migrations if needed: `php artisan migrate`
+3. Clear configuration cache: `php artisan config:cache`
+4. Clear view cache: `php artisan view:clear`
+
+## [Previous - Order Cancellation] - 2025-10-31
 
 ### Bug Fixes (Latest)
 - **Fixed**: Product images now display correctly in all order views

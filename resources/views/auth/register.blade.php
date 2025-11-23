@@ -102,9 +102,9 @@
                     <x-input-error :messages="$errors->get('email')" class="mt-2 text-sm text-red-600" />
                 </div>
 
-                <!-- NISN -->
+                <!-- Username -->
                 <div>
-                    <label for="nisn" class="block text-sm font-medium text-gray-700 mb-2">NISN <span class="text-gray-400 text-xs">(Opsional)</span></label>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-2">Username <span class="text-gray-400 text-xs">(Wajib)</span></label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                             <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,16 +112,17 @@
                             </svg>
                         </div>
                         <input
-                            id="nisn"
-                            name="nisn"
+                            id="username"
+                            name="username"
                             type="text"
-                            value="{{ old('nisn') }}"
-                            autocomplete="nisn"
+                            value="{{ old('username') }}"
+                            required
+                            autocomplete="username"
                             class="appearance-none block w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-base transition duration-200 bg-white"
-                            placeholder="Nomor Induk Siswa Nasional"
+                            placeholder="Username untuk login"
                         >
                     </div>
-                    <x-input-error :messages="$errors->get('nisn')" class="mt-2 text-sm text-red-600" />
+                    <x-input-error :messages="$errors->get('username')" class="mt-2 text-sm text-red-600" />
                 </div>
 
                 <!-- Password -->
