@@ -24,6 +24,13 @@ All notable changes to this project will be documented in this file.
   - Input field added to profile update form as tel input
   - Validation added for phone number field (max 15 characters)
   - Updated seeder with example phone number data
+- **Student Dashboard Enhancement**: Replaced promo slider with recent orders list
+  - Created separate student dashboard view (resources/views/dashboard/student.blade.php)
+  - Removed promotional slider from student dashboard
+  - Added recent orders list showing latest 5 orders with status and prices
+  - Implemented quick statistics for pending and ready orders
+  - Added links to order details and full order history
+  - Updated DashboardController to route student users to the correct view
 
 ### Changed
 - **Authentication System**: Replaced NISN with username for user identification
