@@ -129,6 +129,28 @@
                             <x-input-error :messages="$errors->get('username')" class="mt-2 text-sm text-red-600" />
                         </div>
 
+                        <!-- Alamat -->
+                        <div>
+                            <label for="alamat" class="block text-sm font-medium text-gray-700 mb-2">Alamat <span class="text-gray-400 text-xs">(Opsional)</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </div>
+                                <textarea
+                                    id="alamat"
+                                    name="alamat"
+                                    rows="3"
+                                    autocomplete="alamat"
+                                    class="appearance-none block w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-base transition duration-200 bg-white"
+                                    placeholder="Masukkan alamat lengkap"
+                                >{{ old('alamat') }}</textarea>
+                            </div>
+                            <x-input-error :messages="$errors->get('alamat')" class="mt-2 text-sm text-red-600" />
+                        </div>
+
                         <!-- Password -->
                         <div>
                             <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Kata Sandi</label>
