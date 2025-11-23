@@ -4,102 +4,102 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased] - 2025-11-23
 
-### Added
-- **Username-based Authentication**: Implementation of username for user login instead of NISN
-  - New migration to rename nisn column to username in users table
-  - Username field now required during registration
-- **Mobile App Layout**: Mobile-first design for login and register pages
-  - Responsive layout that maintains mobile app appearance on desktop
-  - Centered mobile screen container with rounded corners and shadow
-  - Fixed mobile screen size (414px x 892px) for consistent experience
-- **User Address Field**: Implementation of alamat field for user profiles
-  - New migration to add alamat column to users table
-  - Input field added to register form as textarea
-  - Input field added to profile update form as textarea
-  - Validation added for address field (max 500 characters)
-  - Updated seeder with example address data
-- **User Phone Number Field**: Implementation of no_hp field for user profiles
-  - New migration to add no_hp column to users table
-  - Input field added to register form as tel input
-  - Input field added to profile update form as tel input
-  - Validation added for phone number field (max 15 characters)
-  - Updated seeder with example phone number data
-- **Student Dashboard Enhancement**: Replaced promo slider with recent orders list
-  - Created separate student dashboard view (resources/views/dashboard/student.blade.php)
-  - Removed promotional slider from student dashboard
-  - Added recent orders list showing latest 5 orders with status and prices
-  - Implemented quick statistics for pending and ready orders
-  - Added links to order details and full order history
-  - Updated DashboardController to route student users to the correct view
-- **Checkout Page Enhancement**: Updated order creation page information and payment method
-  - Replaced NISN information with user address in order creation page
-  - Used location icon to display user address information
-  - Changed payment method text from 'Tunai saat ambil' to 'COD - Cash on Delivery'
-  - Updated payment instruction from 'Bayar langsung di kantin' to 'Bayar langsung saat menerima pesanan'
-  - Added fallback text if user address is not filled
-  - Updated icons and styling to match changes
+### Ditambahkan
+- **Autentikasi Berbasis Username**: Implementasi username untuk login pengguna menggantikan NISN
+  - Migrasi baru untuk mengganti kolom nisn menjadi username di tabel pengguna
+  - Kolom username sekarang wajib diisi saat registrasi
+- **Desain Layout Mobile App**: Desain mobile-first untuk halaman login dan register
+  - Layout responsif yang menjaga tampilan aplikasi mobile di desktop
+  - Wadah layar mobile yang terpusat dengan sudut membulat dan bayangan
+  - Ukuran layar mobile tetap (414px x 892px) untuk pengalaman konsisten
+- **Kolom Alamat Pengguna**: Implementasi kolom alamat untuk profil pengguna
+  - Migrasi baru untuk menambahkan kolom alamat ke tabel pengguna
+  - Kolom input ditambahkan ke formulir registrasi dalam bentuk textarea
+  - Kolom input ditambahkan ke formulir pembaruan profil dalam bentuk textarea
+  - Validasi ditambahkan untuk kolom alamat (maksimal 500 karakter)
+  - Contoh data alamat ditambahkan ke seeder
+- **Kolom Nomor Telepon Pengguna**: Implementasi kolom no_hp untuk profil pengguna
+  - Migrasi baru untuk menambahkan kolom no_hp ke tabel pengguna
+  - Kolom input ditambahkan ke formulir registrasi dalam bentuk input tel
+  - Kolom input ditambahkan ke formulir pembaruan profil dalam bentuk input tel
+  - Validasi ditambahkan untuk kolom nomor telepon (maksimal 15 karakter)
+  - Contoh data nomor telepon ditambahkan ke seeder
+- **Peningkatan Dashboard Siswa**: Ganti slider promosi dengan daftar pesanan terbaru
+  - Buat view dashboard siswa terpisah (resources/views/dashboard/student.blade.php)
+  - Hapus slider promosi dari dashboard siswa
+  - Tambahkan daftar pesanan terbaru yang menampilkan 5 pesanan terakhir dengan status dan harga
+  - Terapkan statistik cepat untuk pesanan menunggu dan siap diambil
+  - Tambahkan link ke detail pesanan dan riwayat pesanan lengkap
+  - Perbarui DashboardController untuk mengarahkan pengguna siswa ke view yang benar
+- **Peningkatan Halaman Checkout**: Diperbarui informasi halaman pembuatan pesanan dan metode pembayaran
+  - Mengganti informasi NISN dengan alamat pengguna di halaman pembuatan pesanan
+  - Menggunakan ikon lokasi untuk menampilkan informasi alamat pengguna
+  - Mengganti teks metode pembayaran dari 'Tunai saat ambil' menjadi 'COD - Cash on Delivery'
+  - Memperbarui instruksi pembayaran dari 'Bayar langsung di kantin' menjadi 'Bayar langsung saat menerima pesanan'
+  - Menambahkan teks cadangan jika alamat pengguna belum diisi
+  - Memperbarui ikon dan gaya tampilan untuk menyesuaikan perubahan
 
-### Changed
-- **Authentication System**: Replaced NISN with username for user identification
-  - Login form now accepts username or email for authentication
-  - Register form now requires username input
-  - LoginRequest updated to authenticate with username or email
-  - User model updated to use username instead of nisn
-  - User seeder updated to use usernames for default accounts
-- **Settings-based Application Name**: Implement dynamic application name from database settings
-  - Update AppServiceProvider to provide cafeName and appName variables to all views
-  - Use View Composer to make settings available globally
-  - Error handling for cases when settings table doesn't exist yet
-- **Mobile Layout**: Update login and register pages with mobile app format
-  - Container layout centered on desktop screen
-  - Mobile device-like appearance with rounded corners and shadow
-  - Consistent mobile experience regardless of access device
+### Diubah
+- **Sistem Autentikasi**: Ganti NISN dengan username untuk identifikasi pengguna
+  - Form login sekarang menerima username atau email untuk otentikasi
+  - Form registrasi sekarang membutuhkan input username
+  - LoginRequest diperbarui untuk mengotentikasi dengan username atau email
+  - Model User diperbarui untuk menggunakan username menggantikan nisn
+  - Seeder pengguna diperbarui untuk menggunakan username untuk akun default
+- **Nama Aplikasi Berbasis Pengaturan**: Implementasi nama aplikasi dinamis dari pengaturan database
+  - Perbarui AppServiceProvider untuk menyediakan variabel cafeName dan appName ke semua view
+  - Gunakan View Composer agar pengaturan tersedia secara global
+  - Penanganan error untuk kasus ketika tabel pengaturan belum ada
+- **Layout Mobile**: Perbarui halaman login dan register dengan format aplikasi mobile
+  - Layout wadah terpusat di layar desktop
+  - Tampilan seperti perangkat mobile dengan sudut membulat dan bayangan
+  - Pengalaman mobile konsisten terlepas dari perangkat yang digunakan
 
-### Changed (Previous Changes)
-- **Route**: Changed root route (/) from welcome page to redirect to login page
-- **Application Name**: All instances of "Kantin Sekolah" replaced with dynamic $appName/$cafeName variable
-  - Login page (`resources/views/auth/login.blade.php`)
-  - Register page (`resources/views/auth/register.blade.php`)
-  - Guest layout title (`resources/views/layouts/guest.blade.php`)
-  - App layout title (`resources/views/layouts/app.blade.php`)
-  - Navigation header (`resources/views/layouts/navigation.blade.php`)
-  - Welcome page (`resources/views/welcome.blade.php`)
-- **Database Configuration**: Changed database name in .env from `aplikasi-kantin` to `aplikasi-cafe`
-- **Environment**: Updated APP_NAME from 'Laravel' to 'Aplikasi Cafe' and APP_URL from 'http://kantin.test' to 'http://cafe.test'
+### Diubah (Perubahan Sebelumnya)
+- **Rute**: Ganti rute utama (/) dari halaman selamat datang ke redirect ke halaman login
+- **Nama Aplikasi**: Semua instance "Kantin Sekolah" diganti dengan variabel dinamis $appName/$cafeName
+  - Halaman login (`resources/views/auth/login.blade.php`)
+  - Halaman register (`resources/views/auth/register.blade.php`)
+  - Judul layout tamu (`resources/views/layouts/guest.blade.php`)
+  - Judul layout aplikasi (`resources/views/layouts/app.blade.php`)
+  - Header navigasi (`resources/views/layouts/navigation.blade.php`)
+  - Halaman selamat datang (`resources/views/welcome.blade.php`)
+- **Konfigurasi Database**: Ganti nama database di .env dari `aplikasi-kantin` ke `aplikasi-cafe`
+- **Lingkungan**: Perbarui APP_NAME dari 'Laravel' ke 'Aplikasi Cafe' dan APP_URL dari 'http://kantin.test' ke 'http://cafe.test'
 
-### Modified Files
-- `app/Models/User.php` - Changed fillable from nisn to username
-- `app/Http/Requests/Auth/LoginRequest.php` - Updated authentication to use username
-- `app/Http/Controllers/Auth/RegisteredUserController.php` - Updated registration to use username
-- `resources/views/auth/login.blade.php` - Updated form labels and placeholders for username and mobile layout
-- `resources/views/auth/register.blade.php` - Replaced NISN field with username field and updated mobile layout
-- `database/seeders/UserSeeder.php` - Updated default users to use username
-- `database/migrations/2025_11_23_094036_rename_nisn_to_username_in_users_table.php` - Migration for changing column
-- `app/Providers/AppServiceProvider.php` - Added View Composer for global settings
-- `routes/web.php` - Changed root route to redirect to login
-- `resources/views/layouts/guest.blade.php` - Updated title to use dynamic app name
-- `resources/views/layouts/app.blade.php` - Updated title to use dynamic app name
-- `resources/views/layouts/navigation.blade.php` - Updated header to use dynamic cafe name
-- `resources/views/welcome.blade.php` - Updated to use dynamic cafe name
-- `.env` - Updated database name, app name, and app url
+### File yang Dimodifikasi
+- `app/Models/User.php` - Ganti fillable dari nisn ke username
+- `app/Http/Requests/Auth/LoginRequest.php` - Perbarui otentikasi untuk menggunakan username
+- `app/Http/Controllers/Auth/RegisteredUserController.php` - Perbarui registrasi untuk menggunakan username
+- `resources/views/auth/login.blade.php` - Perbarui label formulir dan placeholder untuk username dan layout mobile
+- `resources/views/auth/register.blade.php` - Ganti kolom NISN dengan kolom username dan perbarui layout mobile
+- `database/seeders/UserSeeder.php` - Perbarui pengguna default untuk menggunakan username
+- `database/migrations/2025_11_23_094036_rename_nisn_to_username_in_users_table.php` - Migrasi untuk mengganti kolom
+- `app/Providers/AppServiceProvider.php` - Tambahkan View Composer untuk pengaturan global
+- `routes/web.php` - Ganti rute utama untuk redirect ke login
+- `resources/views/layouts/guest.blade.php` - Perbarui judul untuk menggunakan nama aplikasi dinamis
+- `resources/views/layouts/app.blade.php` - Perbarui judul untuk menggunakan nama aplikasi dinamis
+- `resources/views/layouts/navigation.blade.php` - Perbarui header untuk menggunakan nama cafe dinamis
+- `resources/views/welcome.blade.php` - Perbarui untuk menggunakan nama cafe dinamis
+- `.env` - Perbarui nama database, nama aplikasi, dan url aplikasi
 
-### Technical Details
-- **Authentication**: Users can now login using either username or email
-- **Database**: Username column is unique and required for all users
-- **User Experience**: Register form now clearly requires username for account creation
-- **Mobile Layout**: Pages now display in mobile container format on all devices
-- **Responsive Design**: Maintains mobile app appearance while being responsive
-- **Dynamic Naming**: Application name now comes from database settings, can be changed via admin panel
-- **Global Variables**: cafeName and appName variables now available in all views
-- **Safe Implementation**: Error handling in AppServiceProvider to prevent crashes when settings table is not yet available
-- **Database**: Uses MySQL with database name `aplikasi-cafe`
+### Detail Teknis
+- **Autentikasi**: Pengguna sekarang bisa login menggunakan username atau email
+- **Database**: Kolom username unik dan wajib untuk semua pengguna
+- **Pengalaman Pengguna**: Formulir registrasi sekarang secara jelas membutuhkan username untuk pembuatan akun
+- **Layout Mobile**: Halaman sekarang tampil dalam format wadah mobile di semua perangkat
+- **Desain Responsif**: Menjaga tampilan aplikasi mobile sambil tetap responsif
+- **Penamaan Dinamis**: Nama aplikasi sekarang berasal dari pengaturan database, bisa diubah lewat panel admin
+- **Variabel Global**: Variabel cafeName dan appName sekarang tersedia di semua view
+- **Implementasi Aman**: Penanganan error di AppServiceProvider untuk mencegah crash saat tabel pengaturan belum tersedia
+- **Database**: Menggunakan MySQL dengan nama database `aplikasi-cafe`
 
-### Migration Notes
-To apply these changes:
-1. Update your MySQL server to include a database named `aplikasi-cafe`
-2. Run migrations: `php artisan migrate` (includes the username migration)
-3. Clear configuration cache: `php artisan config:cache`
-4. Clear view cache: `php artisan view:clear`
+### Catatan Migrasi
+Untuk menerapkan perubahan ini:
+1. Perbarui server MySQL Anda untuk menyertakan database bernama `aplikasi-cafe`
+2. Jalankan migrasi: `php artisan migrate` (termasuk migrasi username)
+3. Bersihkan cache konfigurasi: `php artisan config:cache`
+4. Bersihkan cache view: `php artisan view:clear`
 
 ## [Previous - Order Cancellation] - 2025-10-31
 
