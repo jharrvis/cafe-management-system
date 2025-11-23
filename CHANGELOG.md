@@ -43,6 +43,16 @@ All notable changes to this project will be documented in this file.
   - Menghapus petunjuk tentang proses pesanan setelah klik tombol
   - Menghapus petunjuk untuk menyiapkan uang pas saat mengambil pesanan
   - Menghapus struktur HTML yang mengelilingi alert termasuk ikon dan warna
+- **Peningkatan Info Card Dashboard**: Memperbarui info card cara pesan makanan di dashboard user
+  - Mengganti isi info card dengan cara pesan makanan yang mencakup pesanan diantar ke alamat
+  - Memperbarui tampilan info card menjadi lebih modern dan profesional
+  - Mengganti ikon dan warna untuk tampilan yang lebih profesional
+  - Gunakan gradient background dan border radius untuk tampilan modern
+  - Tambahkan shadow untuk efek depth
+  - Perbarui konten menjadi 5 langkah dengan nomor urut bulat
+  - Ganti konten agar mencerminkan proses pesan dan antar ke alamat
+  - Tambahkan penjelasan tentang metode COD dan pengantaran pesanan
+  - Gunakan warna biru dan indigo untuk konsistensi dengan tema aplikasi
 
 ### Diubah
 - **Sistem Autentikasi**: Ganti NISN dengan username untuk identifikasi pengguna
