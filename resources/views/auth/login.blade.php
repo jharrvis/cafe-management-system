@@ -43,7 +43,7 @@
             </div>
 
             <h1 class="text-4xl font-bold text-white mb-2 drop-shadow-lg">
-                Kantin Sekolah
+                {{ $cafeName }}
             </h1>
             <p class="text-white text-opacity-90 text-base">
                 Masuk untuk melanjutkan
@@ -130,7 +130,7 @@
 
             <!-- Copyright -->
             <div class="text-center mt-8 text-xs text-gray-400">
-                <p>&copy; {{ date('Y') }} Kantin Sekolah. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} {{ $cafeName }}. All rights reserved.</p>
             </div>
         </div>
     </div>

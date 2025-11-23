@@ -46,7 +46,7 @@
                 Buat Akun Baru
             </h1>
             <p class="text-white text-opacity-90 text-sm">
-                Daftar untuk mengakses Kantin Sekolah
+                Daftar untuk mengakses {{ $cafeName }}
             </p>
         </div>
 
@@ -194,7 +194,7 @@
 
             <!-- Copyright -->
             <div class="text-center mt-6 text-xs text-gray-400">
-                <p>&copy; {{ date('Y') }} Kantin Sekolah. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} {{ $cafeName }}. All rights reserved.</p>
             </div>
         </div>
     </div>

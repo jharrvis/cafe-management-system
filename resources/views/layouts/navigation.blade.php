@@ -19,7 +19,7 @@
                     </svg>
                 </div>
                 <div>
-                    <h1 class="text-white font-bold text-lg">Kantin Sekolah</h1>
+                    <h1 class="text-white font-bold text-lg">{{ $cafeName }}</h1>
                     <p class="text-white text-opacity-80 text-xs">{{ Auth::user()->name }}</p>
                 </div>
             </div>

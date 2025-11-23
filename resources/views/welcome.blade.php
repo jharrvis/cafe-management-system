@@ -12,12 +12,12 @@
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6">
                     <span class="block">Selamat Datang di</span>
                     <span class="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mt-2">
-                        Kantin Sekolah
+                        {{ $cafeName }}
                     </span>
                 </h1>
                 
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-                    Nikmati berbagai menu lezat dan bergizi di kantin sekolah kami. 
+                    Nikmati berbagai menu lezat dan bergizi di {{ $cafeName }} kami.
                     Pesan makanan dan minuman favoritmu dengan mudah dan cepat.
                 </p>
                 
