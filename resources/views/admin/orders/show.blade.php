@@ -51,7 +51,7 @@
                         @if($order->is_cancelled)
                             Dibatalkan
                         @else
-                            {{ $order->status == 'menunggu' ? 'Menunggu' : ($order->status == 'diproses' ? 'Diproses' : ($order->status == 'siap_diambil' ? 'Siap Diambil' : 'Selesai')) }}
+                            {{ $order->status == 'menunggu' ? 'Menunggu' : ($order->status == 'diproses' ? 'Diproses' : ($order->status == 'siap_diambil' ? 'Siap Diantar' : 'Selesai')) }}
                         @endif
                     </h3>
                 </div>
@@ -116,7 +116,7 @@
                             @csrf
                             <input type="hidden" name="status" value="siap_diambil">
                             <button type="submit" class="w-full px-3 py-2 bg-green-500 text-white rounded-xl text-sm font-medium hover:bg-green-600 transition">
-                                Siap Diambil
+                                Siap Diantar
                             </button>
                         </form>
                         <button onclick="document.getElementById('cancelModal').classList.remove('hidden')" class="px-3 py-2 bg-red-500 text-white rounded-xl text-sm font-medium hover:bg-red-600 transition">

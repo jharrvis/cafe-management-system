@@ -72,7 +72,7 @@ class Order extends Model
 
     public function isReady(): bool
     {
-        return $this->status === 'siap_diambil';
+        return $this->status === 'siap_diambil'; // Kita tetap gunakan 'siap_diambil' sebagai status internal karena itu adalah status dalam database
     }
 
     public function isCompleted(): bool
@@ -86,7 +86,7 @@ class Order extends Model
         return match($this->status) {
             'menunggu' => 'yellow',
             'diproses' => 'blue',
-            'siap_diambil' => 'green',
+            'siap_diambil' => 'green',  // Warna tetap hijau karena ini adalah status 'ready' secara makna
             'selesai' => 'gray',
             default => 'gray',
         };
@@ -98,7 +98,7 @@ class Order extends Model
         return match($this->status) {
             'menunggu' => 'Menunggu',
             'diproses' => 'Diproses',
-            'siap_diambil' => 'Siap Diambil',
+            'siap_diambil' => 'Siap Diantar',
             'selesai' => 'Selesai',
             default => 'Unknown',
         };

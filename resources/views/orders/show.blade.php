@@ -158,7 +158,7 @@
                         @endif
                     </div>
                     <div class="flex-1 pb-6">
-                        <p class="font-semibold text-sm text-gray-800">Siap Diambil</p>
+                        <p class="font-semibold text-sm text-gray-800">Siap Diantar</p>
                         <p class="text-xs text-gray-500 mt-1">
                             {{ $order->ready_at ? $order->ready_at->format('d M Y, H:i') : 'Belum siap' }}
                         </p>
@@ -196,9 +196,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <div>
-                        <p class="text-sm font-bold text-green-800">Pesanan Siap Diambil!</p>
+                        <p class="text-sm font-bold text-green-800">Pesanan Siap Diantar!</p>
                         <p class="text-xs text-green-700 mt-1">
-                            Pesanan Anda sudah siap. Silakan datang ke kantin dan tunjukkan nomor pesanan untuk mengambil pesanan.
+                            Pesanan Anda sudah siap. Pesanan akan diantar ke alamat Anda sesuai dengan jadwal pengiriman.
                         </p>
                     </div>
                 </div>
@@ -212,7 +212,7 @@
                     <div>
                         <p class="text-sm font-bold text-yellow-800">Menunggu Konfirmasi</p>
                         <p class="text-xs text-yellow-700 mt-1">
-                            Pesanan Anda sedang menunggu untuk diproses oleh tim kantin. Harap bersabar.
+                            Pesanan Anda sedang menunggu untuk diproses oleh tim cafe. Harap bersabar.
                         </p>
                     </div>
                 </div>
@@ -226,7 +226,7 @@
                     <div>
                         <p class="text-sm font-bold text-blue-800">Sedang Diproses</p>
                         <p class="text-xs text-blue-700 mt-1">
-                            Pesanan Anda sedang disiapkan oleh tim kantin. Mohon menunggu sebentar.
+                            Pesanan Anda sedang disiapkan oleh tim cafe. Mohon menunggu sebentar.
                         </p>
                     </div>
                 </div>

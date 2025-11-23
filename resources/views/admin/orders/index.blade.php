@@ -127,7 +127,7 @@
                             @if($order->is_cancelled)
                                 Dibatalkan
                             @else
-                                {{ $order->status == 'menunggu' ? 'Menunggu' : ($order->status == 'diproses' ? 'Diproses' : ($order->status == 'siap_diambil' ? 'Siap Diambil' : 'Selesai')) }}
+                                {{ $order->status == 'menunggu' ? 'Menunggu' : ($order->status == 'diproses' ? 'Diproses' : ($order->status == 'siap_diambil' ? 'Siap Diantar' : 'Selesai')) }}
                             @endif
                         </span>
                     </div>
