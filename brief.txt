@@ -1,0 +1,57 @@
+ALUR APLIKASI WEB KANTIN SEKOLAH 
+1. Alur Siswa / Pembeli 
+1. Login / Registrasi 
+o Siswa login menggunakan akun sekolah (NIS / email sekolah). 
+o Jika baru pertama kali, registrasi sederhana. 
+2. Melihat Menu 
+o Siswa dapat melihat daftar makanan/minuman yang tersedia hari ini. 
+o Menu tampil dengan detail: nama, harga, deskripsi, ketersediaan stok, dan foto. 
+3. Memesan Makanan/Minuman 
+o Pilih item → tentukan jumlah → masukkan ke keranjang. 
+o Lanjutkan checkout. 
+4. Checkout 
+o Konfirmasi pesanan (detail item, harga total). 
+o Pilih metode pembayaran: 
+▪ Tunai saat ambil 
+5. Mendapatkan Nomor Antrian / Kode Pesanan 
+o Setelah checkout, siswa mendapat nomor pesanan (ID unik). 
+o Status: Menunggu diproses. 
+6. Notifikasi Pesanan 
+o Siswa dapat mengecek status pesanan: 
+▪ Diproses 
+▪ Siap diambil 
+▪ Selesai 
+o Bisa pakai sistem notifikasi (real-time update). 
+7. Pengambilan Pesanan 
+o Tunjukkan nomor pesanan di kantin. 
+o Admin mengubah status jadi Selesai. 
+2. Alur Admin / Kantin 
+1. Login Admin 
+o Admin login dengan akun khusus. 
+2. Manajemen Menu 
+o Tambah / ubah / hapus menu. 
+o Atur harga, deskripsi, stok harian, dan foto. 
+3. Melihat Pesanan Masuk 
+o Daftar pesanan terbaru muncul. 
+o Status default: Menunggu diproses. 
+4. Memproses Pesanan 
+o Admin menyiapkan pesanan. 
+o Ubah status ke Diproses. 
+5. Pesanan Siap 
+o Setelah siap, admin ubah status jadi Siap diambil. 
+o Siswa mendapat notifikasi. 
+6. Selesai 
+o Setelah siswa ambil makanan, admin ubah status ke Selesai. 
+7. Laporan Penjualan 
+o Admin dapat melihat rekap penjualan harian/mingguan/bulanan. 
+o Data bisa diunduh dalam bentuk Excel / PDF. 
+3. Alur Teknis (Ringkas) 
+• User (Siswa/Staff) 
+o Login → Browse Menu → Pesan → Checkout → Dapatkan Nomor → Ambil di kantin. 
+• Admin 
+o Login → Kelola Menu → Terima Pesanan → Update Status → Cetak laporan. 
+NOTE : 
+APLIKASI DIBUAT WEB BASE, NAMUN RESPONSIF KETIKA DIBUKA DI BROWSER MOBILE (HP). 
+
+
+gunakan tailwindcss, jquery, fontawesome

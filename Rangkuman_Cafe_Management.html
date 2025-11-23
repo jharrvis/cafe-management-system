@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangkuman Flow dan Business Process - Sistem Cafe Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: white;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rangkuman Flow dan Business Process - Sistem Cafe Management</h1>
+
+    <h2>1. <strong>Deskripsi Umum</strong></h2>
+    <p>Sistem Cafe Management adalah aplikasi web berbasis Laravel yang dirancang untuk mengelola operasional cafe secara digital, meliputi manajemen produk, pesanan, kategori, dan pengaturan sistem.</p>
+
+    <h2>2. <strong>Jenis Pengguna (User Roles)</strong></h2>
+    <ul>
+        <li><strong>Pengunjung (Guest)</strong>: Pengguna yang belum login</li>
+        <li><strong>Pelanggan (Customer)</strong>: User yang terdaftar dan dapat memesan</li>
+        <li><strong>Admin</strong>: User dengan akses penuh untuk mengelola sistem</li>
+    </ul>
+
+    <h2>3. <strong>Business Process Flow</strong></h2>
+
+    <h3>Flow Pengunjung (Guest)</h3>
+    <pre>1. Akses Halaman Welcome
+2. Registrasi (jika belum memiliki akun)
+3. Login
+4. Menuju Dashboard / Produk</pre>
+
+    <h3>Flow Pelanggan (Customer)</h3>
+    <pre>1. Login ke Sistem
+2. Melihat Daftar Produk
+3. Menambahkan Produk ke Keranjang
+4. Mengelola Keranjang (update kuantitas/hapus item)
+5. Membuat Pesanan (Checkout)
+6. Melihat Riwayat Pesanan
+7. Mengelola Profil</pre>
+
+    <h3>Flow Admin</h3>
+    <pre>1. Login ke Sistem
+2. Manajemen Produk:
+   - Tambah/Edit/Hapus Produk
+   - Toggle ketersediaan produk
+3. Manajemen Pesanan:
+   - Lihat semua pesanan
+   - Update status pesanan
+   - Pembatalan pesanan
+4. Manajemen Kategori:
+   - Tambah/Edit/Hapus kategori
+5. Manajemen Pengguna:
+   - Lihat daftar pelanggan
+   - Hapus akun pelanggan
+6. Manajemen Pengaturan:
+   - Konfigurasi website
+   - Pengaturan umum</pre>
+
+    <h2>4. <strong>Proses Bisnis Utama</strong></h2>
+
+    <h3>A. Manajemen Produk</h3>
+    <p>- Admin menambahkan produk baru dengan detail harga, deskripsi, kategori<br>
+    - Produk dapat di-hide/tampilkan sesuai ketersediaan<br>
+    - Produk dikelompokkan berdasarkan kategori</p>
+
+    <h3>B. Proses Pemesanan</h3>
+    <p>- Pelanggan memilih produk dan menambahkan ke keranjang<br>
+    - Pelanggan dapat mengupdate kuantitas atau menghapus item dari keranjang<br>
+    - Pelanggan melakukan checkout untuk membuat pesanan<br>
+    - Admin menerima pesanan dan dapat mengupdate statusnya (baru, diproses, siap, selesai, dibatalkan)</p>
+
+    <h3>C. Manajemen Kategori</h3>
+    <p>- Admin dapat membuat kategori produk (misal: Makanan, Minuman, Desert)<br>
+    - Produk dapat difilter berdasarkan kategori</p>
+
+    <h3>D. Manajemen Akun</h3>
+    <p>- Registrasi akun pelanggan<br>
+    - Login/logout sistem<br>
+    - Update profil pengguna</p>
+
+    <h2>5. <strong>Fitur Utama yang Tersedia</strong></h2>
+
+    <h3>Untuk Pelanggan:</h3>
+    <ul>
+        <li>Registrasi dan login</li>
+        <li>Browsing produk berdasarkan kategori</li>
+        <li>Shopping cart (keranjang belanja)</li>
+        <li>Checkout pesanan</li>
+        <li>Melihat riwayat pesanan</li>
+        <li>Update profil</li>
+    </ul>
+
+    <h3>Untuk Admin:</h3>
+    <ul>
+        <li>Dashboard admin</li>
+        <li>CRUD produk</li>
+        <li>CRUD kategori</li>
+        <li>Manajemen pesanan (lihat, update status, batalkan)</li>
+        <li>Manajemen pelanggan</li>
+        <li>Pengaturan website</li>
+        <li>Monitoring semua aktivitas</li>
+    </ul>
+
+    <h2>6. <strong>Teknologi yang Digunakan</strong></h2>
+    <ul>
+        <li><strong>Backend</strong>: Laravel 12 Framework</li>
+        <li><strong>Database</strong>: SQLite</li>
+        <li><strong>Frontend</strong>: Tailwind CSS, Alpine.js</li>
+        <li><strong>Build Tool</strong>: Vite</li>
+    </ul>
+
+    <h2>7. <strong>Keunggulan Sistem</strong></h2>
+    <ul>
+        <li>Antarmuka yang responsif dan user-friendly</li>
+        <li>Pembagian role pengguna yang jelas</li>
+        <li>Manajemen produk dan pesanan yang komprehensif</li>
+        <li>Sistem shopping cart real-time</li>
+        <li>Fitur manajemen admin yang lengkap</li>
+        <li>Arsitektur yang modular dan scalable</li>
+    </ul>
+
+    <h2>8. <strong>Use Case Utama</strong></h2>
+    <p>- Memudahkan pelanggan dalam memesan makanan/minuman<br>
+    - Membantu admin dalam mengelola produk dan pesanan<br>
+    - Memberikan visibilitas penuh atas aktivitas operasional cafe<br>
+    - Mempercepat proses pemesanan dan manajemen inventaris</p>
+
+    <p>Sistem ini sangat cocok digunakan untuk cafe, restoran, atau tempat makan lainnya yang ingin mengoptimalkan proses pemesanan dan manajemen operasionalnya secara digital.</p>
+</body>
+</html>

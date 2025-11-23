@@ -1,0 +1,140 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [Unreleased] - 2025-10-31
+
+### Bug Fixes (Latest)
+- **Fixed**: Product images now display correctly in all order views
+  - Admin order detail view (`resources/views/admin/orders/show.blade.php`)
+  - Student order list view (`resources/views/orders/index.blade.php`)
+  - Student order detail view (`resources/views/orders/show.blade.php`)
+  - Changed from `asset('storage/' . $image)` to `asset($image)`
+  - Database stores images as `images/products/filename.jpg` (not `storage/images/products/filename.jpg`)
+  - All image paths now consistent across the application
+
+### Added
+- **Order Cancellation System**: Complete order and item cancellation functionality
+  - Cancel entire orders with reason tracking
+  - Cancel individual order items with reason tracking
+  - Automatic stock return when items/orders are cancelled
+  - Cancellation timestamp tracking
+  - Modal dialogs for cancellation with reason input
+
+- **Enhanced Admin Order Management**:
+  - Quick status update buttons for orders
+  - Visual status indicators with gradient colors
+  - Cancel order button with reason modal
+  - Cancel individual item button with reason modal
+  - Cancellation information display on order details
+
+### Changed
+- **Admin Orders Index**: Redesigned for mobile-first compact layout
+  - Card-based order list instead of table
+  - Gradient statistics cards (2-column grid)
+  - Compact filter section
+  - Improved mobile navigation
+  - Shows cancelled status badge
+
+- **Admin Order Detail View**: Complete redesign
+  - **Fixed**: Product images now display correctly (using `asset('storage/' . $image)`)
+  - Mobile-friendly compact design
+  - Quick status update buttons
+  - Cancellation info banner when order is cancelled
+  - Individual item cancellation buttons
+  - Visual indication of cancelled items (opacity reduced)
+  - Gradient status card based on order status
+
+### Modified Files
+- `resources/views/admin/orders/index.blade.php` - Complete redesign for mobile
+- `resources/views/admin/orders/show.blade.php` - Complete redesign with cancellation features
+- `app/Http/Controllers/OrderController.php` - Added cancelOrder() and cancelOrderItem() methods
+- `app/Models/Order.php` - Added cancellation fields to fillable and casts
+- `app/Models/OrderItem.php` - Added cancellation fields to fillable and casts
+- `routes/web.php` - Added cancel order and cancel item routes
+
+### New Files
+- `database/migrations/2025_10_31_014930_add_cancellation_fields_to_orders_and_order_items.php`
+
+### Technical Details
+- **Database**: Added `is_cancelled`, `cancellation_reason`, and `cancelled_at` to orders and order_items tables
+- **Stock Management**: Automatically returns stock when orders or items are cancelled
+- **Order Total**: Automatically recalculates total when individual items are cancelled
+- **Auto-cancellation**: Orders are automatically marked as cancelled if all items are cancelled
+- **Validation**: Prevents cancellation of completed orders or already cancelled items
+
+### Bug Fixes
+- **Fixed**: Product images not showing in order detail page (admin/orders/show)
+  - Changed from `asset($image)` to `asset('storage/' . $image)`
+  - Images now properly reference the storage path
+
+### Migration Notes
+To apply these changes:
+```bash
+php artisan migrate
+```
+
+This will add cancellation tracking fields to orders and order_items tables.
+
+## [Previous Release] - 2025-10-30
+
+### Added
+- **Settings Module**: Complete settings management system for admin
+  - Settings model with caching support (`app/Models/Setting.php`)
+  - Settings controller with CRUD operations (`app/Http/Controllers/Admin/SettingController.php`)
+  - Settings migration with default values (`database/migrations/2025_10_30_222116_create_settings_table.php`)
+
+- **Settings Views**: Three new views for settings management
+  - Settings index page (`resources/views/admin/settings/index.blade.php`)
+  - Website settings page (`resources/views/admin/settings/website.blade.php`)
+  - Customer management page (`resources/views/admin/settings/customers.blade.php`)
+
+- **Website Settings Features**:
+  - Cafe name configuration
+  - Cafe description
+  - Address and phone number
+  - Operating hours
+  - Maximum orders per day per student
+  - Enable/disable ordering system toggle
+
+- **Customer Management Features**:
+  - View all registered students/customers
+  - Display customer statistics (total orders per customer)
+  - Delete customer accounts with confirmation
+  - Pagination support for large customer lists
+
+### Changed
+- **Mobile Navigation**: Updated bottom navigation menu (`resources/views/layouts/navigation.blade.php`)
+  - Separated admin and student navigation menus
+  - Admin menu now shows: Home, Produk, Pesanan, Pengaturan
+  - Student menu remains: Home, Menu, Keranjang, Pesanan
+  - Added settings icon to admin navigation
+
+### Modified Files
+- `resources/views/layouts/navigation.blade.php` - Updated mobile menu for admin/student role differentiation
+- `routes/web.php` - Added settings routes for admin
+- `.gitignore` - Updated for better Laravel project management
+
+### New Files
+- `app/Models/Setting.php`
+- `app/Http/Controllers/Admin/SettingController.php`
+- `database/migrations/2025_10_30_222116_create_settings_table.php`
+- `resources/views/admin/settings/index.blade.php`
+- `resources/views/admin/settings/website.blade.php`
+- `resources/views/admin/settings/customers.blade.php`
+- `CHANGELOG.md`
+
+### Technical Details
+- **Database**: New `settings` table with key-value structure supporting different data types (text, number, boolean, json)
+- **Caching**: Settings are cached for 1 hour to improve performance
+- **Validation**: Form validation for all setting inputs
+- **Security**: Settings management only accessible to admin role via middleware
+- **UX**: Mobile-friendly responsive design with gradient cards and intuitive icons
+
+### Migration Notes
+To apply these changes:
+```bash
+php artisan migrate
+```
+
+This will create the settings table and populate it with default values.
