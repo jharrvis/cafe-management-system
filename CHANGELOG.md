@@ -53,6 +53,14 @@ All notable changes to this project will be documented in this file.
   - Ganti konten agar mencerminkan proses pesan dan antar ke alamat
   - Tambahkan penjelasan tentang metode COD dan pengantaran pesanan
   - Gunakan warna biru dan indigo untuk konsistensi dengan tema aplikasi
+- **Perubahan Istilah Siswa ke Pelanggan**: Ganti semua referensi siswa menjadi pelanggan di aplikasi
+  - Ganti istilah 'Siap Diambil' menjadi 'Siap Diantar' di card dashboard admin dan user
+  - Ganti ikon card 'Siap Diantar' dengan ikon yang sesuai dengan pengantaran
+  - Ganti teks 'Total Siswa' menjadi 'Total Pelanggan' di card statistik
+  - Ganti istilah 'Siswa' menjadi 'Pelanggan' di halaman pengaturan
+  - Ganti pesan error di controller dari 'siswa' menjadi 'pelanggan'
+  - Perbarui label dan deskripsi di form pengaturan dari 'siswa' ke 'pelanggan'
+  - Ubah tampilan card statistik di dashboard admin dan user untuk mencerminkan sistem pengantaran
 
 ### Diubah
 - **Sistem Autentikasi**: Ganti NISN dengan username untuk identifikasi pengguna
