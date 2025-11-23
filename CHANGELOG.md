@@ -18,6 +18,12 @@ All notable changes to this project will be documented in this file.
   - Input field added to profile update form as textarea
   - Validation added for address field (max 500 characters)
   - Updated seeder with example address data
+- **User Phone Number Field**: Implementation of no_hp field for user profiles
+  - New migration to add no_hp column to users table
+  - Input field added to register form as tel input
+  - Input field added to profile update form as tel input
+  - Validation added for phone number field (max 15 characters)
+  - Updated seeder with example phone number data
 
 ### Changed
 - **Authentication System**: Replaced NISN with username for user identification
