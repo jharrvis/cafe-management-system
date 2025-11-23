@@ -31,6 +31,13 @@ All notable changes to this project will be documented in this file.
   - Implemented quick statistics for pending and ready orders
   - Added links to order details and full order history
   - Updated DashboardController to route student users to the correct view
+- **Checkout Page Enhancement**: Updated order creation page information and payment method
+  - Replaced NISN information with user address in order creation page
+  - Used location icon to display user address information
+  - Changed payment method text from 'Tunai saat ambil' to 'COD - Cash on Delivery'
+  - Updated payment instruction from 'Bayar langsung di kantin' to 'Bayar langsung saat menerima pesanan'
+  - Added fallback text if user address is not filled
+  - Updated icons and styling to match changes
 
 ### Changed
 - **Authentication System**: Replaced NISN with username for user identification
