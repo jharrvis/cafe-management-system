@@ -137,19 +137,36 @@
         </div>
 
         <!-- Info Card -->
-        <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-4">
-            <div class="flex items-start space-x-3">
-                <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-500 rounded-xl p-5 shadow-sm">
+            <div class="flex items-start space-x-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                    </svg>
+                </div>
                 <div>
-                    <p class="text-sm font-bold text-blue-800">Cara Pesan Makanan</p>
-                    <ol class="text-xs text-blue-700 mt-2 space-y-1 list-decimal list-inside">
-                        <li>Klik "Pesan Makanan" untuk melihat menu</li>
-                        <li>Pilih makanan yang kamu inginkan</li>
-                        <li>Tambahkan ke keranjang</li>
-                        <li>Checkout dan tunggu pesanan siap</li>
-                        <li>Ambil pesanan di kantin dengan tunjukkan nomor pesanan</li>
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">Cara Pesan Makanan</h3>
+                    <ol class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5">1</span>
+                            <span><strong>Klik "Pesan Makanan"</strong> untuk melihat menu yang tersedia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5">2</span>
+                            <span><strong>Pilih makanan/minuman</strong> yang kamu inginkan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5">3</span>
+                            <span><strong>Tambahkan ke keranjang</strong> dan periksa kembali pesananmu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5">4</span>
+                            <span><strong>Checkout dengan metode COD</strong> - Bayar saat pesanan sampai di alamatmu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center text-xs font-bold mr-2 mt-0.5">5</span>
+                            <span><strong>Pesanan akan diantar</strong> ke alamat yang terdaftar sesuai jadwal pengiriman</span>
+                        </li>
                     </ol>
                 </div>
             </div>
