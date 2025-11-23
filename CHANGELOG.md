@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 - **Username-based Authentication**: Implementation of username for user login instead of NISN
   - New migration to rename nisn column to username in users table
   - Username field now required during registration
+- **Mobile App Layout**: Mobile-first design for login and register pages
+  - Responsive layout that maintains mobile app appearance on desktop
+  - Centered mobile screen container with rounded corners and shadow
+  - Fixed mobile screen size (414px x 892px) for consistent experience
 
 ### Changed
 - **Authentication System**: Replaced NISN with username for user identification
@@ -20,6 +24,10 @@ All notable changes to this project will be documented in this file.
   - Update AppServiceProvider to provide cafeName and appName variables to all views
   - Use View Composer to make settings available globally
   - Error handling for cases when settings table doesn't exist yet
+- **Mobile Layout**: Update login and register pages with mobile app format
+  - Container layout centered on desktop screen
+  - Mobile device-like appearance with rounded corners and shadow
+  - Consistent mobile experience regardless of access device
 
 ### Changed (Previous Changes)
 - **Route**: Changed root route (/) from welcome page to redirect to login page
@@ -37,8 +45,8 @@ All notable changes to this project will be documented in this file.
 - `app/Models/User.php` - Changed fillable from nisn to username
 - `app/Http/Requests/Auth/LoginRequest.php` - Updated authentication to use username
 - `app/Http/Controllers/Auth/RegisteredUserController.php` - Updated registration to use username
-- `resources/views/auth/login.blade.php` - Updated form labels and placeholders for username
-- `resources/views/auth/register.blade.php` - Replaced NISN field with username field
+- `resources/views/auth/login.blade.php` - Updated form labels and placeholders for username and mobile layout
+- `resources/views/auth/register.blade.php` - Replaced NISN field with username field and updated mobile layout
 - `database/seeders/UserSeeder.php` - Updated default users to use username
 - `database/migrations/2025_11_23_094036_rename_nisn_to_username_in_users_table.php` - Migration for changing column
 - `app/Providers/AppServiceProvider.php` - Added View Composer for global settings
@@ -53,6 +61,8 @@ All notable changes to this project will be documented in this file.
 - **Authentication**: Users can now login using either username or email
 - **Database**: Username column is unique and required for all users
 - **User Experience**: Register form now clearly requires username for account creation
+- **Mobile Layout**: Pages now display in mobile container format on all devices
+- **Responsive Design**: Maintains mobile app appearance while being responsive
 - **Dynamic Naming**: Application name now comes from database settings, can be changed via admin panel
 - **Global Variables**: cafeName and appName variables now available in all views
 - **Safe Implementation**: Error handling in AppServiceProvider to prevent crashes when settings table is not yet available
