@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - **User Address Field**: Implementation of alamat field for user profiles
   - New migration to add alamat column to users table
   - Input field added to register form as textarea
+  - Input field added to profile update form as textarea
   - Validation added for address field (max 500 characters)
   - Updated seeder with example address data
 
