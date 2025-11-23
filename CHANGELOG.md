@@ -61,6 +61,17 @@ All notable changes to this project will be documented in this file.
   - Ganti pesan error di controller dari 'siswa' menjadi 'pelanggan'
   - Perbarui label dan deskripsi di form pengaturan dari 'siswa' ke 'pelanggan'
   - Ubah tampilan card statistik di dashboard admin dan user untuk mencerminkan sistem pengantaran
+- **Pembaruan Desain Pagination**: Ganti seluruh tampilan pagination dengan desain modern dan profesional
+  - Buat desain pagination baru yang lebih modern dan sesuai tema aplikasi
+  - Gunakan gradient warna biru ke ungu untuk tombol pagination
+  - Tambahkan efek hover, shadow, dan animasi transisi untuk tampilan profesional
+  - Buat nomor halaman dengan lingkaran dan gradient background
+  - Perbarui tampilan info jumlah data yang ditampilkan
+  - Update ikon panah menjadi lebih modern
+  - Terapkan desain seragam untuk pagination biasa dan simple pagination
+  - Atur AppServiceProvider untuk menggunakan view pagination default yang baru
+  - Update tampilan pagination di semua halaman yang menggunakan pagination
+  - Gunakan border-radius besar dan shadow untuk efek card modern
 
 ### Diubah
 - **Sistem Autentikasi**: Ganti NISN dengan username untuk identifikasi pengguna
