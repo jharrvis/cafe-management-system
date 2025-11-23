@@ -38,6 +38,11 @@ All notable changes to this project will be documented in this file.
   - Memperbarui instruksi pembayaran dari 'Bayar langsung di kantin' menjadi 'Bayar langsung saat menerima pesanan'
   - Menambahkan teks cadangan jika alamat pengguna belum diisi
   - Memperbarui ikon dan gaya tampilan untuk menyesuaikan perubahan
+- **Penghapusan Alert Informasi Penting**: Hapus bagian informasi penting dari halaman checkout
+  - Menghapus alert kuning dengan teks 'Informasi Penting' di halaman /orders/create
+  - Menghapus petunjuk tentang proses pesanan setelah klik tombol
+  - Menghapus petunjuk untuk menyiapkan uang pas saat mengambil pesanan
+  - Menghapus struktur HTML yang mengelilingi alert termasuk ikon dan warna
 
 ### Diubah
 - **Sistem Autentikasi**: Ganti NISN dengan username untuk identifikasi pengguna
