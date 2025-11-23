@@ -12,6 +12,11 @@ All notable changes to this project will be documented in this file.
   - Responsive layout that maintains mobile app appearance on desktop
   - Centered mobile screen container with rounded corners and shadow
   - Fixed mobile screen size (414px x 892px) for consistent experience
+- **User Address Field**: Implementation of alamat field for user profiles
+  - New migration to add alamat column to users table
+  - Input field added to register form as textarea
+  - Validation added for address field (max 500 characters)
+  - Updated seeder with example address data
 
 ### Changed
 - **Authentication System**: Replaced NISN with username for user identification
