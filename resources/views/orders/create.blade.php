@@ -71,12 +71,13 @@
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                         <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                         </svg>
                     </div>
                     <div>
-                        <p class="text-xs text-gray-500">NISN</p>
-                        <p class="font-medium text-sm text-gray-800">{{ Auth::user()->nisn ?? '-' }}</p>
+                        <p class="text-xs text-gray-500">Alamat</p>
+                        <p class="font-medium text-sm text-gray-800">{{ Auth::user()->alamat ?? 'Alamat belum diisi' }}</p>
                     </div>
                 </div>
             </div>
@@ -97,9 +98,9 @@
                                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
                                 </svg>
-                                <span class="font-medium text-sm text-gray-800">Tunai saat ambil</span>
+                                <span class="font-medium text-sm text-gray-800">COD - Cash on Delivery</span>
                             </div>
-                            <p class="text-xs text-gray-500 mt-1 ml-7">Bayar langsung di kantin</p>
+                            <p class="text-xs text-gray-500 mt-1 ml-7">Bayar langsung saat menerima pesanan</p>
                         </div>
                     </label>
                 </div>
