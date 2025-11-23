@@ -72,6 +72,15 @@ All notable changes to this project will be documented in this file.
   - Atur AppServiceProvider untuk menggunakan view pagination default yang baru
   - Update tampilan pagination di semua halaman yang menggunakan pagination
   - Gunakan border-radius besar dan shadow untuk efek card modern
+- **Perubahan Status Pesanan Siap Diambil menjadi Siap Diantar**: Ganti terminologi status pesanan untuk mencerminkan sistem antar pesanan
+  - Ganti teks 'Siap Diambil' menjadi 'Siap Diantar' di halaman detail pesanan pelanggan
+  - Ganti label status 'Pesanan Siap Diambil' menjadi 'Pesanan Siap Diantar' di halaman detail
+  - Ganti pesan informasi dari 'ambil di kantin' menjadi 'diantar ke alamat sesuai jadwal pengiriman'
+  - Ganti deskripsi proses pesanan di info card untuk mencakup pengantaran
+  - Perbarui model Order untuk mengembalikan label 'Siap Diantar' untuk status 'siap_diambil'
+  - Ganti teks dan label di halaman detail pesanan admin untuk sistem pengantaran
+  - Update alert dan petunjuk pesanan untuk mencerminkan proses pengantaran ke alamat
+  - Ganti semua referensi pengambilan di tempat menjadi pengantaran ke alamat
 
 ### Diubah
 - **Sistem Autentikasi**: Ganti NISN dengan username untuk identifikasi pengguna
