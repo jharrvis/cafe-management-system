@@ -47,6 +47,18 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="alamat" :value="__('Alamat')" />
+            <textarea
+                id="alamat"
+                name="alamat"
+                rows="3"
+                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                autocomplete="alamat"
+            >{{ old('alamat', $user->alamat) }}</textarea>
+            <x-input-error class="mt-2" :messages="$errors->get('alamat')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
