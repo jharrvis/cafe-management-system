@@ -34,6 +34,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'username' => ['required', 'string', 'max:255', 'unique:'.User::class],
             'alamat' => ['nullable', 'string', 'max:500'],
+            'no_hp' => ['nullable', 'string', 'max:15'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -42,6 +43,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'username' => $request->username,
             'alamat' => $request->alamat,
+            'no_hp' => $request->no_hp,
             'password' => Hash::make($request->password),
             'role' => 'student', // New users are students by default
         ]);
