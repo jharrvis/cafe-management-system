@@ -71,7 +71,23 @@ class DashboardController extends Controller
 
     private function studentDashboard()
     {
-        // Gunakan dashboard biasa untuk student (yang sudah ada)
-        return view('dashboard');
+        $user = Auth::user();
+
+        // Ambil pesanan terakhir untuk user ini
+        $userOrders = Order::where('user_id', $user->id)
+                          ->orderBy('created_at', 'desc')
+                          ->with('orderItems.product') // Load produk untuk ditampilkan di daftar pesanan
+                          ->paginate(5); // Menampilkan hanya 5 pesanan terbaru
+
+        // Hitung jumlah pesanan menunggu dan siap diambil untuk ditampilkan di quick stats
+        $pendingOrders = Order::where('user_id', $user->id)
+                             ->where('status', 'menunggu')
+                             ->count();
+
+        $readyOrders = Order::where('user_id', $user->id)
+                           ->whereIn('status', ['siap_diambil', 'diproses'])
+                           ->count();
+
+        return view('dashboard.student', compact('userOrders', 'pendingOrders', 'readyOrders'));
     }
 }

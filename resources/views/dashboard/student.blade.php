@@ -1,188 +1,159 @@
 <x-app-layout>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <h1 class="text-3xl font-bold text-gray-800 mb-8">Dashboard Siswa</h1>
-                    
-                    <!-- Stats Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-blue-400 bg-opacity-30">
-                                    <i class="fas fa-shopping-cart text-2xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm opacity-80">Pesanan Menunggu</p>
-                                    <p class="text-2xl font-bold">{{ $pendingOrders }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-white">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-green-400 bg-opacity-30">
-                                    <i class="fas fa-check-circle text-2xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm opacity-80">Siap Diambil</p>
-                                    <p class="text-2xl font-bold">{{ $readyOrders }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-6 text-white">
-                            <div class="flex items-center">
-                                <div class="p-3 rounded-full bg-purple-400 bg-opacity-30">
-                                    <i class="fas fa-history text-2xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm opacity-80">Total Pesanan</p>
-                                    <p class="text-2xl font-bold">{{ $userOrders->count() }}</p>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Student Dashboard - Mobile App Style -->
+    <div class="p-4 space-y-4">
+
+        <!-- Welcome Card -->
+        <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg">
+            <h2 class="text-2xl font-bold mb-2">Selamat Datang!</h2>
+            <p class="text-white text-opacity-90">{{ Auth::user()->name }}</p>
+            <p class="text-sm text-white text-opacity-80 mt-1">{{ Auth::user()->email }}</p>
+            @if(Auth::user()->username)
+                <p class="text-xs text-white text-opacity-70 mt-1">Username: {{ Auth::user()->username }}</p>
+            @endif
+            @if(Auth::user()->nisn)
+                <p class="text-xs text-white text-opacity-70 mt-1">NISN: {{ Auth::user()->nisn }}</p>
+            @endif
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 gap-3">
+            <div class="bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl p-4 text-white shadow-md">
+                <div class="flex items-center space-x-2 mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-xs opacity-90">Pesanan Menunggu</span>
+                </div>
+                <p class="text-2xl font-bold">{{ $pendingOrders ?? 0 }}</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl p-4 text-white shadow-md">
+                <div class="flex items-center space-x-2 mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                    </svg>
+                    <span class="text-xs opacity-90">Siap Diambil</span>
+                </div>
+                <p class="text-2xl font-bold">{{ $readyOrders ?? 0 }}</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-2xl p-5 shadow-md">
+            <h3 class="font-semibold text-gray-800 mb-4">Menu Cepat</h3>
+            <div class="grid grid-cols-4 gap-3">
+                <a href="{{ route('products.index') }}" class="flex flex-col items-center space-y-2 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h15v12c0 1.657-1.343 3-3 3H6c-1.657 0-3-1.343-3-3V3z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 8h1c1.105 0 2 .895 2 2v2c0 1.105-.895 2-2 2h-1"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 21h12"/>
+                        </svg>
                     </div>
-                    
-                    <!-- Recent Orders -->
-                    <div class="mb-8">
-                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Pesanan Terbaru</h2>
-                        
-                        @if($userOrders->count() > 0)
-                            <div class="overflow-x-auto">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gray-50">
-                                        <tr>
-                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nomor Pesanan</th>
-                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
-                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach($userOrders as $order)
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                    {{ $order->order_number }}
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    {{ $order->created_at->format('d M Y H:i') }}
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    Rp {{ number_format($order->total_amount, 0, ',', '.') }}
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                                        {{ $order->status == 'menunggu' ? 'bg-yellow-100 text-yellow-800' : '' }}
-                                                        {{ $order->status == 'diproses' ? 'bg-blue-100 text-blue-800' : '' }}
-                                                        {{ $order->status == 'siap_diambil' ? 'bg-green-100 text-green-800' : '' }}
-                                                        {{ $order->status == 'selesai' ? 'bg-gray-100 text-gray-800' : '' }}">
-                                                        {{ 
-                                                            $order->status == 'menunggu' ? 'Menunggu' : 
-                                                            ($order->status == 'diproses' ? 'Diproses' : 
-                                                            ($order->status == 'siap_diambil' ? 'Siap Diambil' : 'Selesai')) 
-                                                        }}
-                                                    </span>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                                    <a href="{{ route('orders.show', $order->id) }}" 
-                                                       class="text-blue-600 hover:text-blue-900">
-                                                        <i class="fas fa-eye mr-1"></i>Lihat
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        @else
-                            <div class="text-center py-8">
-                                <i class="fas fa-shopping-bag text-4xl text-gray-300 mb-4"></i>
-                                <p class="text-gray-500">Anda belum memiliki pesanan</p>
-                                <a href="{{ route('products.index') }}" 
-                                   class="mt-4 inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                                    <i class="fas fa-shopping-cart mr-2"></i>Pesan Sekarang
-                                </a>
-                            </div>
+                    <span class="text-xs text-gray-600 text-center">Pesan Makanan</span>
+                </a>
+
+                <a href="{{ route('cart.index') }}" class="relative flex flex-col items-center space-y-2 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center relative">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        @if(session('cart') && count(session('cart')) > 0)
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                                {{ count(session('cart')) }}
+                            </span>
                         @endif
                     </div>
-                    
-                    <!-- Quick Actions -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Aksi Cepat</h3>
-                            <div class="space-y-3">
-                                <a href="{{ route('products.index') }}" 
-                                   class="flex items-center px-4 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
-                                    <div class="p-2 bg-blue-100 rounded-lg">
-                                        <i class="fas fa-utensils text-blue-600"></i>
-                                    </div>
-                                    <div class="ml-4">
-                                        <p class="font-medium text-gray-900">Lihat Menu</p>
-                                        <p class="text-sm text-gray-500">Lihat semua menu yang tersedia</p>
-                                    </div>
-                                </a>
-                                
-                                <a href="{{ route('cart.index') }}" 
-                                   class="flex items-center px-4 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
-                                    <div class="p-2 bg-green-100 rounded-lg">
-                                        <i class="fas fa-shopping-cart text-green-600"></i>
-                                    </div>
-                                    <div class="ml-4">
-                                        <p class="font-medium text-gray-900">Lihat Keranjang</p>
-                                        <p class="text-sm text-gray-500">Lihat produk di keranjang Anda</p>
-                                    </div>
-                                </a>
-                                
-                                <a href="{{ route('orders.index') }}" 
-                                   class="flex items-center px-4 py-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 transition-colors">
-                                    <div class="p-2 bg-purple-100 rounded-lg">
-                                        <i class="fas fa-history text-purple-600"></i>
-                                    </div>
-                                    <div class="ml-4">
-                                        <p class="font-medium text-gray-900">Riwayat Pesanan</p>
-                                        <p class="text-sm text-gray-500">Lihat semua pesanan Anda</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Info Akun</h3>
-                            <div class="space-y-3">
-                                <div>
-                                    <p class="text-sm text-gray-500">Nama</p>
-                                    <p class="font-medium">{{ Auth::user()->name }}</p>
-                                </div>
-                                
-                                <div>
-                                    <p class="text-sm text-gray-500">Email</p>
-                                    <p class="font-medium">{{ Auth::user()->email }}</p>
-                                </div>
-                                
-                                <div>
-                                    <p class="text-sm text-gray-500">NISN</p>
-                                    <p class="font-medium">{{ Auth::user()->nisn ?? '-' }}</p>
-                                </div>
-                                
-                                <div>
-                                    <p class="text-sm text-gray-500">Status</p>
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                        bg-green-100 text-green-800">
-                                        {{ Auth::user()->is_active ? 'Aktif' : 'Tidak Aktif' }}
-                                    </span>
-                                </div>
-                            </div>
-                            
-                            <a href="{{ route('profile.edit') }}" 
-                               class="mt-4 w-full inline-block px-4 py-2 bg-blue-600 text-white text-center rounded-md hover:bg-blue-700">
-                                <i class="fas fa-user-edit mr-2"></i>Edit Profil
-                            </a>
-                        </div>
+                    <span class="text-xs text-gray-600 text-center">Keranjang</span>
+                </a>
+
+                <a href="{{ route('orders.index') }}" class="flex flex-col items-center space-y-2 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
                     </div>
+                    <span class="text-xs text-gray-600 text-center">Riwayat Pesanan</span>
+                </a>
+
+                <a href="{{ route('profile.edit') }}" class="flex flex-col items-center space-y-2 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition">
+                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xs text-gray-600 text-center">Profil Saya</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="bg-white rounded-2xl p-5 shadow-md">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-semibold text-gray-800">Pesanan Terbaru</h3>
+                <a href="{{ route('orders.index') }}" class="text-sm text-blue-600 font-medium">Lihat Semua</a>
+            </div>
+
+            @if(isset($userOrders) && $userOrders->count() > 0)
+                <div class="space-y-3">
+                    @foreach($userOrders as $order)
+                    <a href="{{ route('orders.show', $order->id) }}" class="block">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition">
+                            <div class="flex-1">
+                                <p class="font-semibold text-sm text-gray-800">{{ $order->order_number }}</p>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    {{ $order->created_at->format('d M Y H:i') }}
+                                </p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-sm text-blue-600">Rp {{ number_format($order->total_amount, 0, ',', '.') }}</p>
+                                <span class="inline-block mt-1 px-2 py-1 rounded-full text-[10px] font-bold
+                                    {{ $order->status == 'menunggu' ? 'bg-yellow-100 text-yellow-800' : '' }}
+                                    {{ $order->status == 'diproses' ? 'bg-blue-100 text-blue-800' : '' }}
+                                    {{ $order->status == 'siap_diambil' ? 'bg-green-100 text-green-800' : '' }}
+                                    {{ $order->status == 'selesai' ? 'bg-gray-100 text-gray-800' : '' }}">
+                                    {{
+                                        $order->status == 'menunggu' ? 'Menunggu' :
+                                        ($order->status == 'diproses' ? 'Diproses' :
+                                        ($order->status == 'siap_diambil' ? 'Siap Diambil' : 'Selesai'))
+                                    }}
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    @endforeach
+                </div>
+            @else
+                <div class="text-center py-8 text-gray-400">
+                    <svg class="w-16 h-16 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+                    </svg>
+                    <p class="text-sm">Belum ada pesanan</p>
+                    <a href="{{ route('products.index') }}" class="mt-2 inline-block px-4 py-2 bg-blue-600 text-white rounded-md text-xs hover:bg-blue-700">
+                        Buat Pesanan Baru
+                    </a>
+                </div>
+            @endif
+        </div>
+
+        <!-- Info Card -->
+        <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-4">
+            <div class="flex items-start space-x-3">
+                <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                    <p class="text-sm font-bold text-blue-800">Cara Pesan Makanan</p>
+                    <ol class="text-xs text-blue-700 mt-2 space-y-1 list-decimal list-inside">
+                        <li>Klik "Pesan Makanan" untuk melihat menu</li>
+                        <li>Pilih makanan yang kamu inginkan</li>
+                        <li>Tambahkan ke keranjang</li>
+                        <li>Checkout dan tunggu pesanan siap</li>
+                        <li>Ambil pesanan di kantin dengan tunjukkan nomor pesanan</li>
+                    </ol>
                 </div>
             </div>
         </div>
+
     </div>
 </x-app-layout>
